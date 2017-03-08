@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 public class Contato {
 
     @Id
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     //@NotNull
@@ -42,7 +42,7 @@ public class Contato {
     }
 
     public Contato(String nome, Timestamp data, String telefone, Operadora operadora, Integer id) {
-    	this.id = id;
+    	//this.id = id;
         this.nome = nome;
         this.data = data;
         this.operadora = operadora;

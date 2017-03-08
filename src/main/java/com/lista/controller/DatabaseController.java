@@ -35,8 +35,8 @@ public class DatabaseController {
     @Autowired
     private OperadoraRepository operadoraRepository;
 
+    @CrossOrigin()
     @RequestMapping(method = RequestMethod.POST)
-    
     public String cadastraMassaDeDados() {
     	
     	Date dateSql = new java.sql.Date(Calendar.getInstance().getTime().getTime());
@@ -66,32 +66,33 @@ public class DatabaseController {
         return "Sucesso na criação da massa de dados\n";
     }
 
-    
+    @CrossOrigin()
     @RequestMapping(method = RequestMethod.POST, value = "/contatos", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Contato> cadastrarContato(@RequestBody Contato contato) {
     	
 		return new ResponseEntity<>(this.contatoRepository.save(contato), HttpStatus.OK);
 	}
     
+    @CrossOrigin()
     @RequestMapping(method = RequestMethod.DELETE, value = "/contatos/{id}")
 	public ResponseEntity<Contato> excluirContato(@RequestBody Long id) {
     
     	return new ResponseEntity<>(this.contatoRepository.deleteById(id), HttpStatus.OK);
 	}
     
-    @CrossOrigin(origins = "http://localhost:8080")
+    @CrossOrigin()
 	@RequestMapping(method = RequestMethod.GET, value = "/contatos/{id}")
 	public ResponseEntity<Contato> buscarContato(@PathVariable String id) {
 		return new ResponseEntity<>(this.contatoRepository.findById(new Long(id)), HttpStatus.OK);
 	}
 
-    @CrossOrigin(origins = "http://localhost:8080")
+    @CrossOrigin()
 	@RequestMapping(value = "/contatos", method = RequestMethod.GET )
 	public ResponseEntity<List<Contato>> buscaContatos() {
 		return new ResponseEntity<>(this.contatoRepository.findAll(), HttpStatus.OK);
 	}
     
-    @CrossOrigin(origins = "http://localhost:8080")	
+    @CrossOrigin()	
 	@RequestMapping(value = "/operadoras", method = RequestMethod.GET)
 	public ResponseEntity<List<Operadora>> buscaOperadoras() {
 		return new ResponseEntity<>(this.operadoraRepository.findAll() , HttpStatus.OK);
