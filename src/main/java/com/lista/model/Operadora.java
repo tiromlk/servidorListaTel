@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 public class Operadora {
 
     @Id
-    private Integer codigo;
+    private Long codigo;
 
     
     @NotNull
@@ -24,17 +24,17 @@ public class Operadora {
         // default constructor
     }
 
-    public Operadora(Integer codigo, String nome) {
+    public Operadora(Long codigo, String nome) {
 		//super();
 		this.codigo = codigo;
 		this.nome = nome;
 	}
     
-    public Integer getCodigo() {
+    public Long getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(Integer codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 

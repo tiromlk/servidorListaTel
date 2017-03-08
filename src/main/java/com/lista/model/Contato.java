@@ -31,7 +31,7 @@ public class Contato {
     @Column(name="TELEFONE")
     private String telefone;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.REFRESH)
     private Operadora operadora;
     
     // @JoinColumns({@JoinColumn(name = "codigo", referencedColumnName = "codigo", insertable = false, updatable = true)})

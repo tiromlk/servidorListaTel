@@ -45,23 +45,20 @@ public class DatabaseController {
 
 
         List<Operadora> operadoras = new ArrayList<Operadora>();
-        Operadora embratel = new Operadora (21, "Embratel");
+        Operadora embratel = new Operadora (21l, "Embratel");
         operadoras.add(embratel);
-        Operadora tim = new Operadora (15, "TIM");
+        Operadora tim = new Operadora (15l, "TIM");
         operadoras.add(tim);
-        Operadora oi= new Operadora (14, "OI");
+        Operadora oi= new Operadora (14l, "OI");
         operadoras.add(oi);
         operadoraRepository.save(operadoras);
+        embratel.setNome("atualizado");
 
     	
     	List<Contato> contatos = new ArrayList<Contato>();
-        Contato fabio = new Contato("Fabio", date, "98432-6690", embratel, 1);
-        contatos.add(fabio);
-        Contato ana = new Contato("Ana", date, "98432-6691", tim, 2);
-        contatos.add(ana);
-        Contato maria = new Contato("Maria", date, "98432-6691", oi, 3);
-        contatos.add(maria);
-        contatoRepository.save(contatos);
+        Contato fabio = new Contato("Fabio", date, "98432-6690", embratel , 1);
+        
+        contatoRepository.save(fabio);
 
         return "Sucesso na criação da massa de dados\n";
     }
